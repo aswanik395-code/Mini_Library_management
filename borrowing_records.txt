@@ -1,7 +1,15 @@
 ===== LIBRARY BORROWING RECORDS =====
 
 Book: 1984
-Borrower: aswani
+Borrower: anu
 Borrow date: 2026-10-05
 Due date: 2026-10-12
+Status: Returned
+Return date: 2026-10-05
+-----------------------------
+Book: The Great Gatsby
+Borrower: ami
+Borrow date: 2026-10-05
+Due date: 2026-10-12
+Status: Borrowed
 -----------------------------

@@ -86,7 +86,9 @@ def borrow_book():
                     "title": book["title"],
                     "borrower": borrower,
                     "borrow_date": borrow_date,
-                    "due_date": due_date
+                    "due_date": due_date,
+                    "status": "Borrowed",
+                    "return_date": None
                 }
 
                 borrowing_records.append(record)
@@ -118,6 +120,16 @@ def return_book():
 
             if not book["available"]:
                 book["available"] = True
+
+                # Update the borrowing record
+                for record in borrowing_records:
+                    if (
+                        record["title"].lower() == book["title"].lower()
+                        and record["status"] == "Borrowed"
+                    ):
+                        record["status"] = "Returned"
+                        record["return_date"] = date.today()
+                        break
 
                 print(f"You have returned '{book['title']}'.")
 
@@ -181,6 +193,11 @@ def view_borrowing_records():
         print(f"Borrower: {record['borrower']}")
         print(f"Borrow date: {record['borrow_date']}")
         print(f"Due date: {record['due_date']}")
+        print(f"Status: {record['status']}")
+
+        if record["return_date"] is not None:
+            print(f"Return date: {record['return_date']}")
+
         print("-----------------------------")
 
 
@@ -190,6 +207,7 @@ def save_records_to_file():
 
         if not borrowing_records:
             file.write("No borrowing records found.\n")
+            print("Borrowing records saved to borrowing_records.txt")
             return
 
         file.write("===== LIBRARY BORROWING RECORDS =====\n\n")
@@ -199,6 +217,11 @@ def save_records_to_file():
             file.write(f"Borrower: {record['borrower']}\n")
             file.write(f"Borrow date: {record['borrow_date']}\n")
             file.write(f"Due date: {record['due_date']}\n")
+            file.write(f"Status: {record['status']}\n")
+
+            if record["return_date"] is not None:
+                file.write(f"Return date: {record['return_date']}\n")
+
             file.write("-----------------------------\n")
 
     print("Borrowing records saved to borrowing_records.txt")
