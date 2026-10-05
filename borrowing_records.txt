@@ -1,0 +1,7 @@
+===== LIBRARY BORROWING RECORDS =====
+
+Book: 1984
+Borrower: aswani
+Borrow date: 2026-10-05
+Due date: 2026-10-12
+-----------------------------

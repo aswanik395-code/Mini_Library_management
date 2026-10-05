@@ -1,0 +1,13 @@
+===== SAMPLE LIBRARY DATA =====
+
+Title: The Great Gatsby
+Author: F. Scott Fitzgerald
+Status: Available
+
+Title: To Kill a Mockingbird
+Author: Harper Lee
+Status: Available
+
+Title: 1984
+Author: George Orwell
+Status: Available
